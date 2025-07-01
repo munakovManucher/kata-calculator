@@ -99,6 +99,9 @@ public class FinalCalculator {
     }
 
     public static String arabicToRoman(int arabicResult) {
+        if (arabicResult <= 0) {
+            throw new RuntimeException("римский результат не может быть меньше I");
+        }
         String[] romanNumerals =
             {"I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI", "XII", "XIII", "XIV", "XV", "XVI",
              "XVII", "XVIII", "XIX", "XX", "XXI", "XXII", "XXIII", "XXIV", "XXV", "XXVI", "XXVII", "XXVIII", "XXIX",
@@ -108,6 +111,9 @@ public class FinalCalculator {
              "LXIX", "LXX", "LXXI", "LXXII", "LXXIII", "LXXIV", "LXXV", "LXXVI", "LXXVII", "LXXVIII", "LXXIX", "LXXX",
              "LXXXI", "LXXXII", "LXXXIII", "LXXXIV", "LXXXV", "LXXXVI", "LXXXVII", "LXXXVIII", "LXXXIX", "XC", "XCI",
              "XCII", "XCIII", "XCIV", "XCV", "XCVI", "XCVII", "XCVIII", "XCIX", "C"};
+        if (arabicResult > romanNumerals.length) {
+            throw new RuntimeException("римский результат превышает допустимый предел");
+        }
 
         return romanNumerals[arabicResult - 1];
     }
